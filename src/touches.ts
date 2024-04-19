@@ -86,7 +86,10 @@ export class Touches {
             // Element
             } else {
                 if (action === 'addEventListener') {
-                    this.element.addEventListener(listener, this[handler], false);
+                    this.element.addEventListener(listener, this[handler], {
+                        capture: false,
+                        passive: true
+                    });
                 }
                 if (action === 'removeEventListener') {
                     this.element.removeEventListener(listener, this[handler], false);
